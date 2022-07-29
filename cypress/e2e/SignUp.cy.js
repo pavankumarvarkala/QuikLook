@@ -1,5 +1,7 @@
 ///<reference types='cypress'/>
-const cred=require('../fixtures/cred.json')
+const cred=require('../fixtures/cred.json');
+import faker, { Faker } from '@faker-js/faker';
+import { Fake } from '@faker-js/faker/modules/fake';
 
 describe('Sign Up Module Test Cases',()=>{
 
@@ -156,8 +158,15 @@ describe('Sign Up Module Test Cases',()=>{
      })
 
      it('Validate "Sign Up" page with Valid data',()=>{
+
+      const email=Faker.name.firstname()+'yopmail.com';
+      const fname=Faker.name.firstname();
+      const lname=Faker.name.firstname();
+      const profile=Faker.name.firstname('######');
        
        //Entering valid data into "First Name" input field.
+       cy.xpath('//input[@name="firstName"]').should('be.visible').clear().type(fname);
+
 
      })
 
